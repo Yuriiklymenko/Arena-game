@@ -1,0 +1,130 @@
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size="6">
+                <ion-row>
+                    <ion-button (click)="this.getFighters(fightersNumber)" [disabled]="!canCreateNewWarriors">
+                        Набрать {{fightersNumber}} бойцов
+                    </ion-button>
+                </ion-row>
+<!--                <ion-row>-->
+<!--                    <ion-button [disabled]="disableTableButton">Сформировать турнирную таблицу</ion-button>-->
+<!--                </ion-row>-->
+                <ion-row>
+                    <ion-button [disabled]="this.warriorsList.length <= 1" (click)="this.makeAttack()">Провести раунд
+                    </ion-button>
+                </ion-row>
+
+                <ion-row>
+                    <ion-button [disabled]="this.warriorsList.length <= 1" (click)="makeAllFight()">Провести бой
+                    </ion-button>
+                </ion-row>
+
+                <ion-row>
+                    <ion-button [disabled]="this.warriorsList.length === 0" (click)="this.clearWarriorsList()">Начать
+                        заново
+                    </ion-button>
+                </ion-row>
+            </ion-col>
+
+            <ion-col size="6">
+                <ion-list>
+                    <ion-radio-group (ionChange)="getSelectedRadio($event)">
+                        <ion-list-header>
+                            <ion-card-title>Выберите количество бойцов</ion-card-title>
+                        </ion-list-header>
+
+                        <ion-item>
+                            <ion-label>2 бойца</ion-label>
+                            <ion-radio slot="start" value="2"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>4 бойца</ion-label>
+                            <ion-radio slot="start" value="4" color="tertiary" checked></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>8 бойцов</ion-label>
+                            <ion-radio slot="start" value="8" color="secondary"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>16 бойцов</ion-label>
+                            <ion-radio slot="start" value="16"  color="warning"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>32 бойца</ion-label>
+                            <ion-radio slot="start" value="32"></ion-radio>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label>64 бойца</ion-label>
+                            <ion-radio slot="start" value="64"></ion-radio>
+                        </ion-item>
+
+                    </ion-radio-group>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+<!--            <ion-row *ngIf="warriorsList.length > 1">-->
+<!--                <div class="warrior-box" *ngFor="let warrior of warriorsList">-->
+<!--                    <div class="damage">{{warrior["sword"]}}</div>-->
+<!--                    <div class="defence">{{warrior["shield"]}}</div>-->
+<!--                    <div class="health">{{warrior["health"]}}</div>-->
+<!--                    <img src="../../assets/images/warrior.png" class="image"-->
+<!--                         [ngClass]="{'selected-for-fight': twoWarriorsArray.indexOf(warrior) !== -1 && warrior['selectedForFight'],-->
+<!--                         'dead-warrior': warrior['wholeHealth'] <= 0-->
+<!--                    }">-->
+<!--                    <div class="health-bar">{{warrior["wholeHealth"]}} ед. здоровья</div>-->
+<!--                </div>-->
+<!--            </ion-row>-->
+
+
+            <ion-row *ngIf="warriorsList.length > 1">
+                <div class="warrior-box" *ngFor="let warrior of warriorsList">
+                    <div class="damage">{{warrior["sword"]}}</div>
+                    <div class="defence">{{warrior["shield"]}}</div>
+                    <div class="health">{{warrior["health"]}}</div>
+                    <img src="../../assets/images/warrior.png" class="image"
+                         [ngClass]="{'first-warrior-attack': twoWarriorsArray.indexOf(warrior) === 0 && warrior['selectedForFight'],
+                         'second-warrior-attack': twoWarriorsArray.indexOf(warrior) === 1 && warrior['selectedForFight']
+                    }">
+                    <div class="health-bar">{{warrior["wholeHealth"]}} ед. здоровья</div>
+                </div>
+            </ion-row>
+<!--            ///-->
+
+            <ion-row *ngFor="let deadWarrior of deadWarriors">
+                <div class="warrior-box">
+                    <div class="damage">{{deadWarrior["sword"]}}</div>
+                    <div class="defence">{{deadWarrior["shield"]}}</div>
+                    <div class="health">{{deadWarrior["health"]}}</div>
+                    <div class="dead-warrior-text">is dead</div>
+                    <img src="../../assets/images/warrior.png" class="image dead-warrior">
+                    <div class="health-bar">{{deadWarrior["wholeHealth"]}} ед. здоровья</div>
+                </div>
+            </ion-row>
+
+            <ion-row *ngIf="warriorsList.length === 1">
+                <div class="warrior-box" *ngFor="let warrior of warriorsList">
+                    <div class="damage">{{warrior["sword"]}}</div>
+                    <div class="defence">{{warrior["shield"]}}</div>
+                    <div class="health">{{warrior["health"]}}</div>
+                    <img src="../../assets/images/warrior.png" class="winner">
+                    <div class="health-bar">{{warrior["wholeHealth"]}} ед. здоровья</div>
+                </div>
+
+                <div class="champion-text">IS THE CHAMPION</div>
+            </ion-row>
+
+        </ion-row>
+
+<!--        for SPEECH-->
+
+    </ion-grid>
+</ion-content>

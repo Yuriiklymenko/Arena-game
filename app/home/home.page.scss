@@ -1,0 +1,185 @@
+.warrior-box {
+  height: 250px;
+  width: 250px;
+  position: relative;
+  margin: 10px;
+  padding-bottom: 15px;
+}
+
+.image {
+  height: 100%;
+  border: 1px solid lightgray;
+}
+
+.damage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background: orangered;
+  border-radius: 20px;
+  top: 20px;
+}
+
+.health {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 35px;
+  width: 35px;
+  background-image: url('../../assets/images/heart-icon.png');
+  background-repeat: no-repeat;
+  top: 10px;
+  left: 150px;
+}
+
+.defence {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background: forestgreen;
+  border-radius: 20px;
+  top: 115px;
+  left: 97px;
+}
+
+.health-bar {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 191px;
+  bottom: 5px;
+  background: red;
+  font-size: large;
+}
+
+.champion-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+  color: goldenrod;
+}
+
+.selected-for-fight {
+  border: 4px solid gold;
+}
+
+.dead-warrior {
+  height: 100%;
+  border: 5px solid black;
+  opacity: .3;
+}
+
+.dead-warrior-text {
+  color: #8c41f0;
+  font-size: xx-large;
+  text-transform: uppercase;
+  position: absolute;
+  margin-top: 41%;
+  transform: rotate(-45deg);
+  font-weight: 800;
+}
+
+.winner {
+  height: 100%;
+  border:  2px solid goldenrod;
+}
+
+.first-warrior-attack {
+  border: 2px solid orangered;
+}
+
+.second-warrior-attack {
+  border: 2px solid greenyellow;
+}
+
+//for SPEECH
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  background: #333;
+}
+
+#page-wrapper {
+  width: 640px;
+  background: #FFFFFF;
+  padding: 1em;
+  margin: 1em auto;
+  border-top: 5px solid #69c773;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+}
+
+h1 {
+  margin-top: 0;
+}
+
+#msg {
+  font-size: 0.9em;
+  line-height: 1.4em;
+}
+
+#msg.not-supported strong {
+  color: #CC0000;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.2em;
+  border-radius: 3px;
+  border: 1px solid #D9D9D9;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1) inset;
+}
+
+input[type="range"] {
+  width: 300px;
+}
+
+label {
+  display: inline-block;
+  float: left;
+  width: 150px;
+}
+
+.option {
+  margin: 1em 0;
+}
+
+button {
+  display: inline-block;
+  border-radius: 3px;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 0.8em;
+  background: #69c773;
+  border-bottom: 1px solid #498b50;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+button:hover, button:focus {
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 1;
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
+}
